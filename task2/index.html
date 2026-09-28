@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лендинг - Лабораторная работа №2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Главная CSS Grid сетка страницы -->
+  <div class="page-grid">
+    
+    <!-- Шапка (Header) -->
+    <header class="header">
+      <div class="logo">IT-Services</div>
+      
+      <!-- Гамбургер-иконка для мобильных -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <!-- Навигация (Flexbox) -->
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <!-- Герой-секция (Hero) -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Современные IT-решения для вашего бизнеса</h1>
+        <p>Разработка, веб-дизайн и поддержка 24/7 по лучшим стандартам рынка.</p>
+        <a href="#contact" class="btn">Оставить заявку</a>
+      </div>
+    </section>
+
+    <!-- Секция услуг (Карточки) -->
+    <section id="services" class="services">
+      <h2>Наши услуги</h2>
+      <div class="cards-container">
+        <div class="card">
+          <h3>Веб-разработка</h3>
+          <p>Создание современных и быстрых сайтов любой сложности.</p>
+        </div>
+        <div class="card">
+          <h3>Дизайн интерфейсов</h3>
+          <p>Проектирование удобных и привлекательных UI/UX макетов.</p>
+        </div>
+        <div class="card">
+          <h3>Техподдержка</h3>
+          <p>Круглосуточный мониторинг и обслуживание ваших сервисов.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи -->
+    <section id="contact" class="contact">
+      <h2>Связаться с нами</h2>
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="4" placeholder="Ваше сообщение..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Отправить</button>
+      </form>
+    </section>
+
+    <!-- Подвал (Footer) -->
+    <footer class="footer">
+      <p>&copy; 2026 IT-Services. Все права защищены.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
