@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быки и коровы | Лабораторная работа №4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Быки и коровы</h1>
+        <p class="rules">Компьютер загадал 4-значное число с неповторяющимися цифрами. Попробуйте угадать!</p>
+
+        <!-- Форма ввода и управления -->
+        <div class="form-group">
+            <input type="text" id="user-input" placeholder="Введите 4 цифры" maxlength="6" autocomplete="off">
+            <button id="check-btn">Проверить</button>
+            <button id="restart-btn">Новая игра</button>
+        </div>
+
+        <!-- Сообщения об ошибках и победе -->
+        <div id="error-msg" class="error-msg" hidden></div>
+        <div id="win-msg" class="win-msg" hidden></div>
+
+        <!-- Счётчик попыток -->
+        <div class="counter-box">
+            Количество попыток: <span id="attempts-counter">0</span>
+        </div>
+
+        <!-- История попыток -->
+        <h2>История попыток:</h2>
+        <ul id="history-list" class="history-list"></ul>
+    </div>
+</body>
+</html>

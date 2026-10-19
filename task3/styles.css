@@ -1,0 +1,261 @@
+/* ==========================================================================
+   Todo-list — Лабораторная №3
+   Утилитарный интерфейс: один шрифт, один акцент, раскладка на Flexbox.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #20242b;
+  --muted: #6b7280;
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --border: #e3e3df;
+  --teal: #0e9f8e;
+  --teal-dark: #0b8275;
+  --coral: #e25555;
+  --coral-light: #fdeeee;
+
+  --font-body: "Inter", -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.app {
+  width: 100%;
+  max-width: 34rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 24px 48px -32px rgba(32, 36, 43, 0.25);
+}
+
+.app-header h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.5rem;
+}
+
+.app-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Форма добавления ---------- */
+
+.add-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.add-form input[type="text"] {
+  flex: 1 1 14rem;
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-form input[type="text"]:focus-visible {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 159, 142, 0.15);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn--primary {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--teal-dark);
+}
+
+.btn--primary:active {
+  transform: scale(0.98);
+}
+
+.form-warning {
+  margin: -0.5rem 0 0;
+  padding: 0.6rem 0.9rem;
+  background: var(--coral-light);
+  color: #9c2b2b;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+/* ---------- Панель: счётчик + фильтры ---------- */
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.counter {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-btn {
+  min-height: 36px;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--teal);
+}
+
+.filter-btn.is-active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #ffffff;
+}
+
+/* ---------- Список задач ---------- */
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.task-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1 1 auto;
+  word-break: break-word;
+}
+
+.task.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-delete {
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--coral);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.task-delete:hover,
+.task-delete:focus-visible {
+  background: var(--coral-light);
+  border-color: var(--coral);
+}
+
+.empty-state {
+  margin: 0;
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+}
+
+@media (max-width: 23rem) {
+  .app {
+    padding: 1.5rem;
+  }
+}
