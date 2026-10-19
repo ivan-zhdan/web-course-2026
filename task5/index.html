@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Simon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Simon Says</h1>
+        <!-- Отображение текущего уровня/раунда на экране -->
+        <h2 id="level">Уровень: 0</h2>
+        <p id="message">Нажмите Старт, чтобы начать</p>
+        
+        <!-- 4 кликабельных сектора/кнопки -->
+        <div class="grid">
+            <div class="color-btn red" data-id="0"></div>
+            <div class="color-btn green" data-id="1"></div>
+            <div class="color-btn blue" data-id="2"></div>
+            <div class="color-btn yellow" data-id="3"></div>
+        </div>
+
+        <!-- Кнопка «Старт» -->
+        <button id="start-btn">Старт</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
