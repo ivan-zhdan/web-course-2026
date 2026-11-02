@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная №7: Лента постов (MVC)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Лента постов</h1>
+            <input type="text" id="search-input" placeholder="Поиск по заголовку (начните вводить)...">
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Блок для отображения ошибки сети -->
+        <div id="error-message" class="error hidden"></div>
+
+        <!-- Контейнер для постов -->
+        <div id="post-container" class="posts"></div>
+
+        <!-- Индикатор загрузки -->
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div> 
+            <span>Загрузка...</span>
+        </div>
+
+        <!-- Элемент-триггер для бесконечного скролла -->
+        <div id="scroll-observer" class="observer"></div>
+
+        <!-- Сообщение об окончании списка -->
+        <div id="end-message" class="end-message hidden">Больше постов нет</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
